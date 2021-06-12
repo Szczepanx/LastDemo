@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -40,7 +42,10 @@ public class UserController {
 
 
     @PostMapping("/user")
-    private String datesFromForm(@ModelAttribute(name = "user") User user){
+    private String datesFromForm(@ModelAttribute(name = "user") @Valid User user, BindingResult result){
+            if (result.hasErrors()) {
+                return "/user";
+            }
         userRepository.save(user);
         return "redirect:/thanks";
     }

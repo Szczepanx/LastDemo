@@ -57,8 +57,8 @@
         <label for="phoneNumber">Numer Telefonu: </label>
         <form:input path="phoneNumber" id="phoneNumber"/>
     </div>
-    Mieskzanie:<form:select id="place" path="place" items="${place}" itemLabel="id" itemValue="id"/>
-    Data:<form:select id="place" path="dates" items="${dates}" itemLabel="id" itemValue="id"/>
+    Mieskzanie:<form:select id="place" path="place" items="${place}" itemLabel="city" itemValue="id"/>
+    Data:<form:select id="place" path="dates" items="${dates}" itemLabel="startDate" itemValue="id"/>
     <div>
         <input type="submit">
     </div>
